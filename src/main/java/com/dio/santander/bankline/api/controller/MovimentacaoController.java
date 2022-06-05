@@ -32,4 +32,9 @@ public class MovimentacaoController {
     public void save(@RequestBody NovaMovimentacao novaMovimentacao){
         movimentacaoService.save(novaMovimentacao);
     }
+
+    @GetMapping("/{idConta}")
+    public List<Movimentacao> findAllPorId(@PathVariable("idConta")  Integer idConta){
+        return movimentacaoRepository.findByIdConta(idConta);
+    }
 }
